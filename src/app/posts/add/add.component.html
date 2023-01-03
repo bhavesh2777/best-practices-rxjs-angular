@@ -1,0 +1,36 @@
+<div class="container">
+  <div
+    class="fnt-semibold"
+    fxLayout="row"
+    fxLayoutAlign="start center"
+    fxLayoutGap="10px"
+  >
+    <a routerLink="/" class="fnt-size-12 text-black">Go back</a>
+    <div class="fnt-size-24">Add a new Post</div>
+  </div>
+  <div>
+    <div class="form-group">
+      <div>Title</div>
+      <input
+        type="text"
+        [(ngModel)]="postForm.title"
+        class="form-field-input"
+      />
+    </div>
+    <div class="form-group">
+      <div>Description</div>
+      <input
+        type="text"
+        [(ngModel)]="postForm.description"
+        class="form-field-input"
+      />
+    </div>
+    <button
+      type="button"
+      (click)="addNewPost()"
+      class="common-btn cursor-pointer fnt-semibold btn-padding text-white bg-black fnt-size-16"
+    >
+      Add
+    </button>
+  </div>
+</div>

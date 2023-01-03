@@ -1,0 +1,43 @@
+<div class="home-container" fxLayout="column" fxLayoutAlign="center start">
+  <div fxLayout="row" fxLayoutGap="8px">
+    <button
+      routerLink="/add"
+      class="common-btn cursor-pointer fnt-semibold btn-padding text-white bg-black fnt-size-16"
+    >
+      Add a new Post
+    </button>
+    <button
+      (click)="refreshPosts()"
+      class="common-btn cursor-pointer fnt-semibold btn-padding text-white bg-black fnt-size-16"
+    >
+      Refresh
+    </button>
+  </div>
+  <div fxFlexFill fxLayout="column" class="posts-wrapper">
+    <div
+      *ngFor="let item of postArr$ | async; trackBy: identify"
+      fxLayout="column"
+      class="post-item"
+    >
+      <div class="post-property fnt-semibold fnt-size-24">{{ item.title }}</div>
+      <div class="post-property fnt-size-16">{{ item.description }}</div>
+      <div class="post-property fnt-size-16">{{ item.likes }}</div>
+      <div fxLayout="row">
+        <button
+          [routerLink]="['/edit', item.id]"
+          fxFlex
+          class="post-property gray-bg btn-padding fnt-size-16 cursor-pointer text-white"
+        >
+          Edit post
+        </button>
+        <button
+          fxFlex
+          class="post-property red-bg btn-padding fnt-size-16 cursor-pointer text-white"
+          (click)="deleteItem(item.id)"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
